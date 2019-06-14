@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    background-color: floralwhite;
+}
+
+#brandLogo{
+    filter: grayscale(1);
+}
+
+/* table */
+.time{
+    min-width: 175px;
+}
+.comment{
+    min-width: 350px;
+}
+.tableCV{
+    min-width: 200px;
+    word-break:break-all;
+}
+/* table end */
