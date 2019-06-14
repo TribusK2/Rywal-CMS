@@ -8,7 +8,8 @@
     "create_time": "2019-06-09 21:15:48",
     "update_time": "0000-00-00 00:00:00",
     "comment": "test",
-    "timestamp": "2019-06-09 21:15:48"
+    "timestamp": "2019-06-09 21:15:48",
+    "display": "true"
 },{
    "id_apl": "2",
     "email": "ponter@wp.pl",
@@ -19,7 +20,8 @@
     "create_time": "2019-06-11 21:15:48",
     "update_time": "2019-06-12 21:38:54",
     "comment": "",
-    "timestamp": "2019-06-12 21:38:54"
+    "timestamp": "2019-06-12 21:38:54",
+    "display": "true"
 },{
    "id_apl": "3",
     "email": "antla@wp.pl",
@@ -30,5 +32,6 @@
     "create_time": "2019-06-01 21:15:48",
     "update_time": "2019-06-02 21:38:54",
     "comment": "Nic do dodania",
-    "timestamp": "2019-06-02 21:38:54"
+    "timestamp": "2019-06-02 21:38:54",
+    "display": "true"
 }]
