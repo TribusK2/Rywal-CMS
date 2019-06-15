@@ -17,10 +17,6 @@ body{
     min-width: 130px;
 }
 .comment{
-    min-width: 350px;
-}
-.tableCV{
-    min-width: 200px;
-    word-break:break-all;
+    min-width: 400px;
 }
 /* table end */
