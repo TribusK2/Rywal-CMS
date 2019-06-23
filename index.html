@@ -85,7 +85,7 @@
                                 <td class="comment">{{person.comment}}</td>
                                 <td class="text-center"><a href="{{person.file_url}}{{person.file_name}}" download><button class="btn btn-outline-info"><i class="fas fa-file-download"></i></button></a></td>
                                 <td class="text-center"><button ng-click="edit()" class="btn btn-outline-warning" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button></td>
-                                <td class="text-center"><button class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></td>
+                                <td class="text-center"><button ng-click="delete()" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -94,7 +94,7 @@
         </div>
         <!-- data table end -->
 
-        <!-- modal -->
+        <!-- edit modal -->
         <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -115,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <!-- modal end -->
+        <!-- edit modal end -->
     </div>
     
     

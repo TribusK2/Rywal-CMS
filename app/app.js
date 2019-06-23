@@ -36,6 +36,18 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
             // });
         };
     };
+    // delete record
+    $scope.delete = function(){
+        var id = this.person.id_apl;
+        $scope.aplications = $filter('filter')($scope.aplications, {id_apl: id},
+             function(actual, expected){
+                return actual !== expected;
+             });
+        // $scope.aplications.splice(item,1)
+        // console.log(id);
+        // console.log(item);
+        // arrayRemove($scope.aplications, item);
+    };
 
 
     // // edit comment field
