@@ -19,4 +19,11 @@ body{
 .comment{
     min-width: 400px;
 }
+    /* modal */
+    #modalArea{
+        outline: none;
+        resize: none;
+        
+    }
+    /* modal end */
 /* table end */
