@@ -49,6 +49,9 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
         // arrayRemove($scope.aplications, item);
     };
 
+    // add record
+    
+
 
     // // edit comment field
     //     // begin edit

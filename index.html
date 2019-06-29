@@ -37,7 +37,7 @@
                 </div>
             </nav>
             <div class="col-auto m-0 p-0">
-                <button class="btn m-0 mt-2 p-0 border border-secondary ">
+                <button class="btn m-0 mt-2 p-0 border border-secondary">
                     <a class="btn text-secondary" href="#" title="Wyloguj"><i class="fas fa-power-off fa-2x"></i></a>
                 </button>
             </div>   
@@ -48,7 +48,10 @@
         <!-- data table -->
         <div class="row">
             <div class="col-12">
-                <h3 class="text-center p-3">Aplikacje kandydatów</h3>
+                <div class="row justify-content-center mb-2">
+                    <h3 class="p-3 m-0">Aplikacje kandydatów</h3>
+                    <button class="btn btn-outline-secondary p-2 m-1" title="Dodaj kandydata" data-toggle="modal" data-target="#addModal"><i class="fa fa-user-plus fa-2x"></i></button>
+                </div>
                 <div class="row justify-content-center">
                     <div class="input-group col-8 col-md-5 mb-3 row justify-content-center">
                         <div class="input-group-prepend">
@@ -106,16 +109,62 @@
                     </div>
                     <div class="modal-body">
                         <!-- <textarea class="col-12" name="comment" id="modalArea" rows="5" ng-model="comment">{{comment}}</textarea> -->
-                        <input type="text" class="col-12 m-0" ng-model="comment" value="{{comment}}">
+                        <!-- <input type="text" class="col-12 m-0" ng-model="comment" value="{{comment}}"> -->
+                        <div class="form-group">
+                            <label for="inputComment">Wpisz komentarz:</label>
+                            <input ng-model="comment" type="text" class="form-control" id="inputComment" aria-describedby="comment">
+                        </div>
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" ng-click="save()">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary" ng-click="save()">Zapisz zmiany</button>
                     </div>
                 </div>
             </div>
         </div>
         <!-- edit modal end -->
+
+        <!-- add modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="ModalLabel">Dodaj dane</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <textarea class="col-12" name="comment" id="modalArea" rows="5" ng-model="comment">{{comment}}</textarea> -->
+                        <div class="form-group">
+                            <label for="inputEmail">Email:</label>
+                            <input ng-model="person.email" type="email" class="form-control" id="inputEmail" aria-describedby="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputfirstName">Imię:</label>
+                            <input ng-model="person.first_name" type="text" class="form-control" id="inputFirstName" aria-describedby="firstName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputfirstName">Nazwisko:</label>
+                            <input ng-model="person.last_name" type="text" class="form-control" id="inputLastName" aria-describedby="lastName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputfirstName">Komentarz:</label>
+                            <input ng-model="person.comment" type="text" class="form-control" id="inputComment" aria-describedby="commentName">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputFile">CV:</label>
+                            <input ng-model="person.file" type="file" class="form-control-file" id="inputFile">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zamknij</button>
+                    <button type="button" class="btn btn-primary" ng-click="save()">Dodaj</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add modal end -->
     </div>
     
     
