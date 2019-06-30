@@ -28,6 +28,7 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
         $scope.save = function(){
             var editedComment = this.comment;
             item.comment = editedComment;
+            $('#editModal').modal('toggle');
             // $http({
             //     method: "post",
             //     url: "data/aplications.json",
@@ -50,7 +51,61 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
     };
 
     // add record
-    
+    $scope.addPerson = function(){
+        $('#emailError').removeClass('d-flex').addClass('d-none');
+        $('#firstNameError').removeClass('d-flex').addClass('d-none');
+        $('#lastNameError').removeClass('d-flex').addClass('d-none');
+        $('#fileError').removeClass('d-flex').addClass('d-none');
+        $('#inputEmail')[0].value = '';
+        $('#inputFirstName')[0].value = '';
+        $('#inputLastName')[0].value = '';
+        $('#inputComment')[0].value = '';
+        $('#inputFile')[0].value = '';
+    };
+    $scope.savePerson = function(){
+        var execute = 1;
+        $('#emailError').removeClass('d-flex').addClass('d-none');
+        $('#firstNameError').removeClass('d-flex').addClass('d-none');
+        $('#lastNameError').removeClass('d-flex').addClass('d-none');
+        $('#fileError').removeClass('d-flex').addClass('d-none');
+        if($('#inputEmail')[0].value == ''){
+            $('#emailError').removeClass('d-none').addClass('d-flex');
+            execute = 0;
+        };
+        if($('#inputFirstName')[0].value == ''){
+            $('#firstNameError').removeClass('d-none').addClass('d-flex');
+            execute = 0;
+        };
+        if($('#inputLastName')[0].value == ''){
+            $('#lastNameError').removeClass('d-none').addClass('d-flex');
+            execute = 0;
+        };
+        if($('#inputFile')[0].value == ''){
+            $('#fileError').removeClass('d-none').addClass('d-flex');
+            execute = 0;
+        };
+        if (execute == 1){
+            var ids = $scope.aplications.map(function(o) { 
+                return parseInt(o.id_apl);
+            });
+            var maxId = ids.reduce(function(a, b) {
+                return Math.max(a, b);
+            });
+            var newId = (maxId+1).toString();
+            $scope.aplications.push({
+                id_apl: newId,
+                email: $scope.newPerson.email,
+                first_name: $scope.newPerson.first_name,
+                last_name: $scope.newPerson.last_name,
+                comment: $scope.newPerson.comment,
+            });
+            $scope.newPerson.email = '';
+            $scope.newPerson.first_name = '';
+            $scope.newPerson.last_name = '';
+            $scope.newPerson.comment = '';
+            $('#addModal').modal('toggle');
+        };
+    };
 
 
     // // edit comment field
