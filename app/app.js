@@ -37,6 +37,7 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
             // });
         };
     };
+
     // delete record
     $scope.delete = function(){
         var id = this.person.id_apl;
@@ -51,6 +52,7 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
     };
 
     // add record
+        // clear form at start
     $scope.addPerson = function(){
         $('#emailError').removeClass('d-flex').addClass('d-none');
         $('#firstNameError').removeClass('d-flex').addClass('d-none');
@@ -62,28 +64,72 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
         $('#inputComment')[0].value = '';
         $('#inputFile')[0].value = '';
     };
+        // validation
     $scope.savePerson = function(){
         var execute = 1;
         $('#emailError').removeClass('d-flex').addClass('d-none');
+        $('#emailErrorSec').removeClass('d-flex').addClass('d-none');
         $('#firstNameError').removeClass('d-flex').addClass('d-none');
+        $('#firstNameErrorSec').removeClass('d-flex').addClass('d-none');
         $('#lastNameError').removeClass('d-flex').addClass('d-none');
+        $('#lastNameErrorSec').removeClass('d-flex').addClass('d-none');
         $('#fileError').removeClass('d-flex').addClass('d-none');
-        if($('#inputEmail')[0].value == ''){
+        $('#fileErrorSec').removeClass('d-flex').addClass('d-none');
+        var email = $('#inputEmail')[0].value;
+        var firsName = $('#inputFirstName')[0].value;
+        var lastName = $('#inputLastName')[0].value;
+        var file = $('#inputFile')[0].value;
+        var fileMaxSize = 400000;
+        
+        // email validation
+        if(email == ''){
             $('#emailError').removeClass('d-none').addClass('d-flex');
             execute = 0;
+        }else{
+            let regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!regEmail.test(email)){
+                $('#emailErrorSec').removeClass('d-none').addClass('d-flex');
+                execute = 0;
+            };
         };
-        if($('#inputFirstName')[0].value == ''){
+            
+        // first name validation
+        if(firsName == ''){
             $('#firstNameError').removeClass('d-none').addClass('d-flex');
             execute = 0;
+        }else{
+            var regFirstName = /^[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ]+$/;
+            if (!regFirstName.test(firsName)){
+                $('#firstNameErrorSec').removeClass('d-none').addClass('d-flex');
+                execute = 0;
+            };
         };
-        if($('#inputLastName')[0].value == ''){
+
+        // last name validation
+        if(lastName == ''){
             $('#lastNameError').removeClass('d-none').addClass('d-flex');
             execute = 0;
+        }else{
+            var regLastName = /^(?!-)(?!.*--)[a-zA-ZżźćńółęąśŻŹĆĄŚĘŁÓŃ-]+(?<!-)$/;
+            if (!regLastName.test(lastName)){
+                $('#lastNameErrorSec').removeClass('d-none').addClass('d-flex');
+                execute = 0;
+            };
         };
-        if($('#inputFile')[0].value == ''){
+
+        // file validation
+        if(file == ''){
             $('#fileError').removeClass('d-none').addClass('d-flex');
             execute = 0;
+        }else{
+            var fileSize = $('#inputFile')[0].files[0].size;
+            var fileType = $('#inputFile')[0].files[0].type;
+            if (fileSize > fileMaxSize || fileType != 'application/pdf'){
+                $('#fileErrorSec').removeClass('d-none').addClass('d-flex');
+                execute = 0;
+            };
         };
+        // execution if all validation pass
         if (execute == 1){
             var ids = $scope.aplications.map(function(o) { 
                 return parseInt(o.id_apl);
@@ -99,6 +145,20 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
                 last_name: $scope.newPerson.last_name,
                 comment: $scope.newPerson.comment,
             });
+            // var formData = new FormData();
+            // formData.append('file', $('#inputFile')[0].files[0]);
+
+            // $.ajax({
+            //     url : 'uploads/cvs',
+            //     type : 'POST',
+            //     data : formData,
+            //     processData: false,  // tell jQuery not to process the data
+            //     contentType: false,  // tell jQuery not to set contentType
+            //     success : function(data) {
+            //         console.log(data);
+            //         alert(data);
+            //     }
+            // });
             $scope.newPerson.email = '';
             $scope.newPerson.first_name = '';
             $scope.newPerson.last_name = '';
@@ -106,28 +166,6 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
             $('#addModal').modal('toggle');
         };
     };
+    //  add record end
 
-
-    // // edit comment field
-    //     // begin edit
-    // $scope.contenteditable = false;
-    // $scope.bgColor = 'bg-none';
-    // $scope.display = 'd-none';
-    // $scope.edit = function(event){
-    //     this.bgColor = 'bg-secondary';
-    //     this.contenteditable = true;
-    //     this.display = 'd-flex';
-    //     var comment = this.person.comment;z
-    //     console.log(this.$index);
-
-    //         // cancel edit
-    //     $scope.cancel = function(event){
-    //         this.bgColor = 'bg-none';
-    //         this.contenteditable = false;
-    //         this.display = 'd-none';
-    //         this.person.comment = comment;
-           
-    //         // console.log(this.person.comment);
-    //     };
-    // };
 }]);

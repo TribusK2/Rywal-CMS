@@ -140,25 +140,29 @@
                             <label for="inputEmail">Email:</label>
                             <input ng-model="newPerson.email" type="email" class="form-control" id="inputEmail" aria-describedby="email">
                             <small id="emailError" class="form-text text-danger d-none">Podaj email</small>
+                            <small id="emailErrorSec" class="form-text text-danger d-none">Podany email ma nieprawidłowy format</small>
                         </div>
                         <div class="form-group">
                             <label for="inputfirstName">Imię:</label>
                             <input ng-model="newPerson.first_name" type="text" class="form-control" id="inputFirstName" aria-describedby="firstName">
                             <small id="firstNameError" class="form-text text-danger d-none">Podaj imię</small>
+                            <small id="firstNameErrorSec" class="form-text text-danger d-none">Podane imię ma nieprawidłowy format</small>
                         </div>
                         <div class="form-group">
                             <label for="inputlastName">Nazwisko:</label>
                             <input ng-model="newPerson.last_name" type="text" class="form-control" id="inputLastName" aria-describedby="lastName">
                             <small id="lastNameError" class="form-text text-danger d-none">Podaj nazwisko</small>
+                            <small id="lastNameErrorSec" class="form-text text-danger d-none">Podane nazwisko ma nieprawidłowy format</small>
                         </div>
                         <div class="form-group">
                             <label for="inputComment">Komentarz:</label>
                             <input ng-model="newPerson.comment" type="text" class="form-control" id="inputComment" aria-describedby="commentName">
                         </div>
                         <div class="form-group">
-                            <label for="inputFile">CV:</label>
+                            <label for="inputFile">CV (format PDF 400kB):</label>
                             <input ng-model="newPerson.file" type="file" class="form-control-file" id="inputFile">
                             <small id="fileError" class="form-text text-danger d-none">Brak pliku</small>
+                            <small id="fileErrorSec" class="form-text text-danger d-none">Nieprawidłowy format lub rozmiar pliku</small>
                         </div>
                     </div>
                     <div class="modal-footer">
