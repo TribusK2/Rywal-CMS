@@ -65,7 +65,7 @@
                     <table class="table ">
                         <thead class="thead-dark">
                             <tr>
-                                <th class="text-center p-1"><button ng-click="sortBy('id_apl')" class="btn text-light py-0 px-2 btn-dark toggler">Id</button></th>
+                                <th class="text-center p-1"><button ng-click="sortBy('Number(id_apl)')" class="btn text-light py-0 px-2 btn-dark toggler">Id</button></th>
                                 <th class="p-1"><button ng-click="sortBy('email')" class="btn text-light py-0 px-2 btn-dark">Email</button></th>
                                 <th class="p-1"><button ng-click="sortBy('first_name')" class="btn text-light py-0 px-2 btn-dark">Imię</button></th>
                                 <th class="p-1"><button ng-click="sortBy('last_name')" class="btn text-light py-0 px-2 btn-dark">Nazwisko</button></th>
@@ -88,7 +88,7 @@
                                 <td class="comment">{{person.comment}}</td>
                                 <td class="text-center"><a href="{{person.file_url}}{{person.file_name}}" download><button class="btn btn-outline-info"><i class="fas fa-file-download"></i></button></a></td>
                                 <td class="text-center"><button ng-click="edit()" class="btn btn-outline-warning" data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></button></td>
-                                <td class="text-center"><button ng-click="delete()" class="btn btn-outline-danger"><i class="fas fa-trash"></i></button></td>
+                                <td class="text-center"><button ng-click="delete()" class="btn btn-outline-danger" data-toggle="modal" data-target="#deleteModal"><i class="fas fa-trash"></i></button></td>
                             </tr>
                         </tbody>
                     </table>
@@ -102,10 +102,10 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="ModalLabel">{{title}}</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                        <h5 class="modal-title" id="ModalLabel">{{title}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <!-- <textarea class="col-12" name="comment" id="modalArea" rows="5" ng-model="comment">{{comment}}</textarea> -->
@@ -123,6 +123,31 @@
             </div>
         </div>
         <!-- edit modal end -->
+
+        <!-- delete modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="ModalLabel">Usuwanie</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <p>Czy na pewno chsesz usunąć dane kandydata?:</p>
+                            <p><strong>{{personName}}</strong></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                    <button type="button" class="btn btn-danger" ng-click="confirm()">Usuń</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- delete modal end -->
 
         <!-- add modal -->
         <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
