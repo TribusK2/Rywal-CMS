@@ -8,6 +8,13 @@ body{
     background-color: whitesmoke
 }
 
+/* loader */
+#loader{
+    position: relative;
+    text-align: center;
+    top: 45vh;
+}
+
 #brandLogo{
     filter: grayscale(1);
 }
