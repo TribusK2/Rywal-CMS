@@ -36,11 +36,15 @@
             <form id="logForm" class="col-8 col-sm-7 col-md-6 col-lg-5 col-xl-4" method="GET" action="panel.html">
                 <div class="form-group">
                     <label for="inputLogin">Login:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Podaj login">
+                    <input id="login" type="login" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Podaj login">
+                    <small id="loginError" class="form-text text-danger d-none">Podaj login</small>
+                    <small id="loginErrorSec" class="form-text text-danger d-none">Nieprawidłowy login</small>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Hasło:</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło">
+                    <input id="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Podaj hasło">
+                    <small id="passwordError" class="form-text text-danger d-none">Podaj hasło</small>
+                    <small id="passwordErrorSec" class="form-text text-danger d-none">Hasło nieprawidłowe</small>
                 </div>
                 <button id="logButton" type="submit" class="btn btn-primary">Zaloguj</button>
             </form>
@@ -51,5 +55,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="script/script.js"></script>
+        <script src="script/index.js"></script>
     </body>
     </html>

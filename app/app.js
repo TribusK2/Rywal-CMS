@@ -140,7 +140,7 @@ myApp.controller('aplCtrl', ['$scope', '$http', '$filter', function($scope, $htt
                 };
             };
             // execution if all validation pass
-            if (execute == 1){
+            if (execute === 1){
                 var ids = $scope.aplications.map(function(o) { 
                     return parseInt(o.id_apl);
                 });
